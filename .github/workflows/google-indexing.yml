@@ -1,0 +1,14 @@
+name: Google Indexing
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:      # Allows manual triggering
+
+jobs:
+  google-indexing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: slucha/action-google-indexing@main
+        with:
+          siteUrl: 'https://pomodorotimerapp.com'
+          gcpServiceAccountKey: ${{ secrets.Google_Service_Account_Secret }}

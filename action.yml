@@ -1,12 +1,12 @@
 name: 'Google Indexing'
 description: 'Index your site on Google using the Indexing API.'
-author: 'Robin Genz <mail@robingenz.dev>'
+author: 'slucha'
 
-# Define your inputs here.
 inputs:
   siteUrl:
-    description: 'url.de'
+    description: 'The URL of the site to be indexed'
     required: true
+    default: 'https://pomodorotimerapp.com'
   gcpServiceAccountKey:
     description: 'The GCP service account key in JSON format.'
     required: true
@@ -14,3 +14,4 @@ inputs:
 runs:
   using: node20
   main: dist/index.mjs
+
