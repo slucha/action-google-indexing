@@ -5,7 +5,7 @@ author: 'Robin Genz <mail@robingenz.dev>'
 # Define your inputs here.
 inputs:
   siteUrl:
-    description: 'The domain or site URL of the site to be indexed.'
+    description: 'url.de'
     required: true
   gcpServiceAccountKey:
     description: 'The GCP service account key in JSON format.'
