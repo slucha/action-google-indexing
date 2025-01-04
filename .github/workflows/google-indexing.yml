@@ -11,14 +11,14 @@ jobs:
     steps:
       - name: Debug Inputs
         run: |
-          echo "Site URL: sc-domain:pomodorotimerapp.com"
+          echo "Site URL: pomodorotimerapp.com"
           echo "Service Account Key: [REDACTED]"
 
       - name: Run Google Indexing Action
         id: run-indexing
         uses: slucha/action-google-indexing@main
         with:
-          siteUrl: 'sc-domain:pomodorotimerapp.com'
+          siteUrl: 'pomodorotimerapp.com' # Pass only the domain here
           gcpServiceAccountKey: ${{ secrets.Google_Service_Account_Secret }}
         continue-on-error: true
 
