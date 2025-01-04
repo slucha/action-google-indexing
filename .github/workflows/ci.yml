@@ -40,4 +40,4 @@ jobs:
         uses: ./
         with:
           siteUrl: 'pkghub.io'
-          gcpServiceAccountKey: ${{ secrets.GCP_SA_KEY }}
+          gcpServiceAccountKey: ${{ secrets.Google_Service_Account_Secret }}
