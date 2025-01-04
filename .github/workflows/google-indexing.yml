@@ -1,4 +1,5 @@
 name: Google Indexing
+
 on:
   schedule:
     - cron: '0 0 * * *'  # Runs daily at midnight
@@ -8,7 +9,21 @@ jobs:
   google-indexing:
     runs-on: ubuntu-latest
     steps:
-      - uses: slucha/action-google-indexing@main
+      - name: Debug Inputs
+        run: |
+          echo "Site URL: sc-domain:pomodorotimerapp.com"
+          echo "Service Account Key: [REDACTED]"
+
+      - name: Run Google Indexing Action
+        id: run-indexing
+        uses: slucha/action-google-indexing@main
         with:
-          siteUrl: 'https://pomodorotimerapp.com'
+          siteUrl: 'sc-domain:pomodorotimerapp.com'
           gcpServiceAccountKey: ${{ secrets.Google_Service_Account_Secret }}
+        continue-on-error: true
+
+      - name: Capture Error (if any)
+        if: failure()
+        run: |
+          echo "The indexing action failed. Reviewing error details..."
+          echo "${{ steps.run-indexing.outputs.error }}" || echo "No detailed error output captured."
