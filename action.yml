@@ -6,7 +6,7 @@ inputs:
   siteUrl:
     description: 'The URL of the site to be indexed'
     required: true
-    default: 'pomodorotimerapp.com'
+    default: 'sc-domain:pomodorotimerapp.com'
   gcpServiceAccountKey:
     description: 'The GCP service account key in JSON format.'
     required: true
